@@ -2,6 +2,7 @@ package tech.getarrays.employeemanager.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tech.getarrays.employeemanager.exception.UserNotFoundException;
 import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.repository.EmployeeRepository;
@@ -41,8 +42,9 @@ public class EmployeeService {
                 );
     }
 
+    @Transactional
     public void deleteEmployee(Long id){
-        employeeRepository.deleteById(id);
+        employeeRepository.deleteEmployeeById(id);
     }
 
 
